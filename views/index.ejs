@@ -2,5 +2,27 @@
   <head><title><%= title %></title></head>
   <body>
     welcome <%= user%>;
+    
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAvNOiJDNjBcp5Eeu2By7yLAMF40In3ja8",
+    authDomain: "vot3s-da1d7.firebaseapp.com",
+    databaseURL: "https://vot3s-da1d7.firebaseio.com",
+    projectId: "vot3s-da1d7",
+    storageBucket: "vot3s-da1d7.appspot.com",
+    messagingSenderId: "549966422568",
+    appId: "1:549966422568:web:4a512169c7346e5c3b8b1d"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
   </body>
 </html>
