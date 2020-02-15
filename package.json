@@ -1,0 +1,24 @@
+{
+  "name": "vot3s-hacksu2020-",
+  "version": "1.0.0",
+  "description": "In loving memory of Isaac Ortega",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpanu/VOT3S-HackSU2020-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpanu/VOT3S-HackSU2020-/issues"
+  },
+  "homepage": "https://github.com/rpanu/VOT3S-HackSU2020-#readme"
+}
