@@ -8,7 +8,7 @@ app.set("views","./views");
 
 
 app.get('/', (req, res) => {
-    res.render('index', {title: "HACK", user: "Me"})
+    res.render('index', {title: "DON'T HACK", user: "Me"})
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
