@@ -37,8 +37,8 @@
                          alt="Flower" style="float:left;width:50%;height:100%;object-fit:cover;">
                 </div>
                 <div class="main-image">
-                    <img class="hoverable" src="https://images.squarespace-cdn.com/content/5b99e55396d455ee78c764fc/1556217003605-D2QEK6PY6RPYVOETZLYY/butt-wax-hair-removal-strips-2.jpg?content-type=image%2Fjpeg"
-                         alt="Butt" style="float:left;width:50%;height:100%;object-fit:cover;">
+                    <img class="hoverable" src="https://cdn.kiwilimon.com/recetaimagen/30704/th5-640x426-34299.jpg"
+                         alt="Sandwich" style="float:left;width:50%;height:100%;object-fit:cover;">
                 </div>
 
                 <div class="centered bg-dark circle-div">
@@ -50,14 +50,13 @@
 
         </div>
     </div>
-    <div class="container chat-container">
-        <div class="msg-container bg-info">
-            <p class="text-light">Nah, I dunno. Finn sucks.</p>
-        </div>
+    <div class="container chat-container" id="chatbox">
     </div>
 
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+    <form action="" enctype="multipart/form-data">
+      <input id="m" autocomplete="off" placeholder="message"/>
+      <input id="n" autocomplete="off" placeholder="username"/>
+      <button>Send</button>
     </form>
 
 </body>
@@ -70,13 +69,18 @@
     var socket = io();
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
-      socket.emit('chat', $('#m').val());
+
+      var chat = {
+          name: $('#n').val(),
+          text: $('#m').val(),
+      }
+      socket.emit('chat', chat);
       $('#m').val('');
       return false;
     });
     // TODO fix here
     socket.on('chat', function(msg){
-      $('msg-container bg-info').append('<p class="text-light">$msg</p>');
+      $('#chatbox').append('<div class="msg-container bg-info"> <p class="text-light">'+ msg.name +'</p> <p class="text-light">'+msg.text+'</p> </div>');
     });
   });  
 </script>

@@ -8,6 +8,8 @@ const port = 3000
 app.set('view engine', 'ejs');
 app.set("views","./views");
 
+
+
 require("firebase/auth");
 require("firebase/firestore");
 
@@ -29,13 +31,14 @@ firebase.initializeApp(firebaseConfig);
 
 var serviceAccount = require('./DB/adminkey.json');
 
+
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://vot3s-da1d7.firebaseio.com"
 });
 
 let db = admin.firestore();
-
 /*
 let test = db.collection('users').doc("testdoc");
 let setTest = test.set({
@@ -44,6 +47,7 @@ let setTest = test.set({
 });
 */
 
+
 app.get('/', (req, res) => {
   res.render('index', {title: "DON'T HACK", user: "Me"})
 });
@@ -51,12 +55,15 @@ app.get('/', (req, res) => {
 io.on('connection', function(socket){
   socket.on('chat', function(msg){
     db.collection('Chat').doc().set({
-      name: "Rohan",
-      text: msg
+      name: msg.name,
+      text: msg.text
     });
-    socket.emit('chat', msg);
-    
-    
+    var chat = {
+      name: msg.name,
+      text: msg.text,
+    }
+    console.log(chat);
+    socket.emit('chat', chat); 
   });
 });
 
