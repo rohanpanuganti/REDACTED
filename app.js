@@ -12,9 +12,14 @@ app.get('/', (req, res) => {
 });
 
 
+var firebase = require("firebase/app");
 var admin = require("firebase-admin");
+require("firebase/auth");
+require("firebase/firestore");
 
-var serviceAccount = require("path/to/serviceAccountKey.json");
+var serviceAccount = require(".\\DB\\adminkey.json");
+
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
