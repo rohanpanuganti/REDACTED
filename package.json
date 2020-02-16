@@ -9,7 +9,8 @@
     "firebase": "^7.8.2",
     "firebase-admin": "^8.9.2",
     "firebase-functions": "^3.3.0",
-    "mongodb": "^3.5.3"
+    "mongodb": "^3.5.3",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {},
   "scripts": {
