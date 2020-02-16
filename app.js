@@ -66,5 +66,22 @@ io.on('connection', function(socket){
   });
 });
 
+string redact = function(msg) {
+    var words = string.split(" ");
+    
+    if(words[0].toLower() == 'redacted'){
+        addRedact(words[1]);
+        return;
+    }
+    
+    for (var i = 0; i < words.length; i += 1) {
+        var thisWord = words[i];
+        if(isRedacted(thisWord)){
+           msg.replace(thisWord, 'REDACTED');
+        }
+    }
+    
+    return answer;
+};
 
 http.listen(port, () => console.log(`Example app listening on port ${port}!`))
