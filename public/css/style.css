@@ -1,0 +1,94 @@
+:root {
+    --color-primary-0: #303C74;
+    --color-primary-1: #7B84AE;
+    --color-primary-2: #515D91;
+    --color-primary-3: #172357;
+    --color-primary-4: #07103A;
+    --color-secondary-1-0: #452F74;
+    --color-secondary-1-1: #8B7AAE;
+    --color-secondary-1-2: #655091;
+    --color-secondary-1-3: #2B1657;
+    --color-secondary-1-4: #17063A;
+    --color-secondary-2-0: #26596A;
+    --color-secondary-2-1: #6C939F;
+    --color-secondary-2-2: #457585;
+    --color-secondary-2-3: #104050;
+    --color-secondary-2-4: #022835;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-div {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+body {
+    background-color: var(--color-secondary-2-2);
+}
+
+.color-primary-0 {
+    color: #303C74
+}
+/* Main Primary color */
+.color-primary-1 {
+    color: #7B84AE
+}
+
+.color-primary-2 {
+    color: #515D91
+}
+
+.color-primary-3 {
+    color: #172357
+}
+
+.color-primary-4 {
+    color: #07103A
+}
+
+.color-secondary-1-0 {
+    color: #452F74
+}
+/* Main Secondary color (1) */
+.color-secondary-1-1 {
+    color: #8B7AAE
+}
+
+.color-secondary-1-2 {
+    color: #655091
+}
+
+.color-secondary-1-3 {
+    color: #2B1657
+}
+
+.color-secondary-1-4 {
+    color: #17063A
+}
+
+.color-secondary-2-0 {
+    color: #26596A
+}
+/* Main Secondary color (2) */
+.color-secondary-2-1 {
+    color: #6C939F
+}
+
+.color-secondary-2-2 {
+    color: #457585
+}
+
+.color-secondary-2-3 {
+    color: #104050
+}
+
+.color-secondary-2-4 {
+    color: #022835
+}

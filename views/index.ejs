@@ -1,29 +1,278 @@
 <html>
-  <head><title><%= title %></title></head>
-  <body>
-    welcome <%= user%>;
-    
-    
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand abs" href="#">Make a Choice</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="collapsingNavbar">
+            <span class="navbar-text text-inline">
+                And Build Your Streak
+            </span>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="prompt">
+        <h1 class="text-light">Vot3!</h1>
+        <h4>and Build Your Streak</h4>
+    </div>
+
+    <div class="container-fluid">
+        <div class="" style="margin-top:75px;margin-bottom:75px;">
+
+            <div style="width:100%;height:400px;">
+                <div class="main-image">
+                    <img class="hoverable" src="https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                         alt="Flower" style="float:left;width:50%;height:100%;object-fit:cover;">
+                </div>
+                <div class="main-image">
+                    <img class="hoverable" src="https://images.squarespace-cdn.com/content/5b99e55396d455ee78c764fc/1556217003605-D2QEK6PY6RPYVOETZLYY/butt-wax-hair-removal-strips-2.jpg?content-type=image%2Fjpeg"
+                         alt="Butt" style="float:left;width:50%;height:100%;object-fit:cover;">
+                </div>
+
+                <div class="centered bg-dark circle-div">
+                    <div class="centered text-light">
+                        <h1>OR</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container chat-container">
+        <div class="msg-container bg-dark">
+            <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
+            <p class="text-light">Hello. How are you today?</p>
+        </div>
+
+        <div class="msg-container bg-info">
+            <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+            <p class="text-light">Hey! I'm fine. Thanks for asking!</p>
+        </div>
+
+        <div class="msg-container bg-dark">
+            <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
+            <p class="text-light">Sweet! So, what do you wanna do today?</p>
+        </div>
+
+        <div class="msg-container bg-info">
+            <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+            <p class="text-light">Nah, I dunno. Finn sucks.</p>
+        </div>
+    </div>
+</body>
+<style>
+    :root {
+        --color-primary-0: #303C74;
+        --color-primary-1: #7B84AE;
+        --color-primary-2: #515D91;
+        --color-primary-3: #172357;
+        --color-primary-4: #07103A;
+        --color-secondary-1-0: #452F74;
+        --color-secondary-1-1: #8B7AAE;
+        --color-secondary-1-2: #655091;
+        --color-secondary-1-3: #2B1657;
+        --color-secondary-1-4: #17063A;
+        --color-secondary-2-0: #26596A;
+        --color-secondary-2-1: #6C939F;
+        --color-secondary-2-2: #457585;
+        --color-secondary-2-3: #104050;
+        --color-secondary-2-4: #022835;
+    }
+
+    body {
+        font-family: 'Georgia';
+    }
+
+    .main-image {
+        position: relative;
+    }
+
+    .main-image-text {
+        left: 0;
+        position: absolute;
+        text-align: center;
+        top: 30px;
+        width: 100%
+    }
+
+    .hoverable {
+    }
+
+        .hoverable:hover {
+            transition: 0.5s;
+            opacity: 0.5;
+        }
+
+    .prompt {
+        margin: auto;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .centered {
+        position: absolute;
+        top: 58%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .circle-div {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+
+    body {
+        background-color: var(--color-secondary-2-2);
+    }
+
+    .color-primary-0 {
+        color: #303C74
+    }
+    /* Main Primary color */
+    .color-primary-1 {
+        color: #7B84AE
+    }
+
+    .color-primary-2 {
+        color: #515D91
+    }
+
+    .color-primary-3 {
+        color: #172357
+    }
+
+    .color-primary-4 {
+        color: #07103A
+    }
+
+    .color-secondary-1-0 {
+        color: #452F74
+    }
+    /* Main Secondary color (1) */
+    .color-secondary-1-1 {
+        color: #8B7AAE
+    }
+
+    .color-secondary-1-2 {
+        color: #655091
+    }
+
+    .color-secondary-1-3 {
+        color: #2B1657
+    }
+
+    .color-secondary-1-4 {
+        color: #17063A
+    }
+
+    .color-secondary-2-0 {
+        color: #26596A
+    }
+    /* Main Secondary color (2) */
+    .color-secondary-2-1 {
+        color: #6C939F
+    }
+
+    .color-secondary-2-2 {
+        color: #457585
+    }
+
+    .color-secondary-2-3 {
+        color: #104050
+    }
+
+    .color-secondary-2-4 {
+        color: #022835
+    }
+
+    .msg-container {
+        border: 2px solid #dedede;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .chat-container {
+        border: 2px solid #dedede;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        padding: 10px;
+        margin: auto;
+        width: auto;
+        height: 300px;
+        overflow: scroll;
+    }
+
+    .chat-darker {
+        border-color: #ccc;
+        background-color: #ddd;
+    }
+
+    .chat-container::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .chat-container img {
+        float: left;
+        max-width: 60px;
+        width: 100%;
+        margin-right: 20px;
+        border-radius: 50%;
+    }
+
+        .chat-container img.right {
+            float: right;
+            margin-left: 20px;
+            margin-right: 0;
+        }
+
+    .chat-time-right {
+        float: right;
+        color: #aaa;
+    }
+
+    .chat-time-left {
+        float: left;
+        color: #999;
+    }
+</style>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
 <script>
-  // Your web app's Firebase configuration
+    // Your web app's Firebase configuration
 
-  var firebaseConfig = {
-    apiKey: "AIzaSyAvNOiJDNjBcp5Eeu2By7yLAMF40In3ja8",
-    authDomain: "vot3s-da1d7.firebaseapp.com",
-    databaseURL: "https://vot3s-da1d7.firebaseio.com",
-    projectId: "vot3s-da1d7",
-    storageBucket: "vot3s-da1d7.appspot.com",
-    messagingSenderId: "549966422568",
-    appId: "1:549966422568:web:4a512169c7346e5c3b8b1d"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+    var firebaseConfig = {
+        apiKey: "AIzaSyAvNOiJDNjBcp5Eeu2By7yLAMF40In3ja8",
+        authDomain: "vot3s-da1d7.firebaseapp.com",
+        databaseURL: "https://vot3s-da1d7.firebaseio.com",
+        projectId: "vot3s-da1d7",
+        storageBucket: "vot3s-da1d7.appspot.com",
+        messagingSenderId: "549966422568",
+        appId: "1:549966422568:web:4a512169c7346e5c3b8b1d"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 </script>
   </body>
 </html>
