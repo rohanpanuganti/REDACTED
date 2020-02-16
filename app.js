@@ -55,15 +55,14 @@ app.get('/', (req, res) => {
 io.on('connection', function(socket){
   socket.on('chat', function(msg){
     db.collection('Chat').doc().set({
-      name: msg.name,
-      text: msg.text
+      text: msg
     });
-    var chat = {
-      name: msg.name,
-      text: msg.text,
-    }
-    console.log(chat);
-    io.emit('chat', chat); 
+    console.log(msg);
+    io.emit('chat', msg); 
+  });
+
+  socket.on('redacted', function(word){
+    db.collection('Redacted').doc(word);
   });
 });
 

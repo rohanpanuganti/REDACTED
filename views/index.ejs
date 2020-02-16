@@ -64,22 +64,18 @@
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 
 <script>
+
     $(function () {
     var socket = io();
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
-
-      var chat = {
-          name: $('#n').val(),
-          text: $('#m').val(),
-      }
-      socket.emit('chat', chat);
+      socket.emit('chat', $('#m').val());
       $('#m').val('');
       return false;
     });
     // TODO fix here
     socket.on('chat', function(msg){
-      $('#chatbox').append('<div class="msg-container bg-info"> <p class="text-light">'+ msg.name +'</p> <p class="text-light">'+msg.text+'</p> </div>');
+      $('#chatbox').append('<div class="msg-container bg-info"> <p class="text-light">'+ msg +'</p> </div>');
     });
   });  
 </script>
