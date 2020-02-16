@@ -57,8 +57,8 @@ io.on('connection', function(socket){
     db.collection('Chat').doc().set({
       text: msg
     });
-    console.log(msg);
-    io.emit('chat', msg); 
+       msg = msg.replace("hello", "REDACTED");
+      io.emit('chat', msg);
   });
 
   socket.on('redacted', function(word){
@@ -66,22 +66,68 @@ io.on('connection', function(socket){
   });
 });
 
-string redact = function(msg) {
-    var words = string.split(" ");
-    
-    if(words[0].toLower() == 'redacted'){
+
+//add user
+
+function addRedact(redacted) {
+    let change = db.collection('Redacted').doc(redacted);
+    let setTest = change.set({
+        first: 'test'
+    });
+}
+//
+
+//check if user exists
+
+function isRedacted(word) {
+    var wordRef = db.collection('Redacted').doc(word);
+    var retVal = false;
+    wordRef.get().then(function (doc) {
+        if (doc.exists) {
+            retVal = true;
+        }
+    })
+    return retVal;
+}
+
+function redact(msg) {
+    //Split our string into words
+    var words = msg.toString().split(" ");
+
+    //Check if it's a redact command
+    if(words[0].toLowerCase() == 'redacted'){
         addRedact(words[1]);
         return;
     }
-    
-    for (var i = 0; i < words.length; i += 1) {
-        var thisWord = words[i];
-        if(isRedacted(thisWord)){
-           msg.replace(thisWord, 'REDACTED');
-        }
+
+    //Loop through each word
+    for (var i = 0; i < words.length - 1; i++) {
+        var wordRef = db.collection('Redacted').doc(words[i]);
+
+        //
+        wordRef.get().then(function (doc) {
+            if (doc.exists) {
+
+                console.log(words.length);
+                console.log(words[1]);
+
+                console.log(words[i]);
+                console.log(msg);
+
+                msg = msg.replace(words[i], 'REDACTED');
+                
+                
+                console.log(msg);
+                console.log(i);
+                console.log(words.length);
+                if (i == words.length - 1) {
+                    console.log(msg);
+                    io.emit('chat', msg);
+                }
+            }
+        })
+
     }
-    
-    return answer;
 };
 
 http.listen(port, () => console.log(`Example app listening on port ${port}!`))
