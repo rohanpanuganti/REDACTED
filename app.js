@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
 
 const port = 3000
 
@@ -7,9 +9,6 @@ app.set('view engine', 'ejs');
 app.set("views","./views");
 
 
-app.get('/', (req, res) => {
-    res.render('index', {title: "DON'T HACK", user: "Me"})
-});
 
 require("firebase/auth");
 require("firebase/firestore");
@@ -18,11 +17,19 @@ var firebase = require("firebase/app");
 const admin = require("firebase-admin");
 const functions = require("firebase-functions");
 
+var firebaseConfig = {
+  apiKey: "AIzaSyAvNOiJDNjBcp5Eeu2By7yLAMF40In3ja8",
+  authDomain: "vot3s-da1d7.firebaseapp.com",
+  databaseURL: "https://vot3s-da1d7.firebaseio.com",
+  projectId: "vot3s-da1d7",
+  storageBucket: "vot3s-da1d7.appspot.com",
+  messagingSenderId: "549966422568",
+  appId: "1:549966422568:web:4a512169c7346e5c3b8b1d"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-//admin.initializeApp(functions.config().firebase);
-
-
-var serviceAccount = require(".\\DB\\adminkey.json");
+var serviceAccount = require('./DB/adminkey.json');
 
 
 
@@ -32,11 +39,30 @@ admin.initializeApp({
 });
 
 let db = admin.firestore();
-
+/*
 let test = db.collection('users').doc("testdoc");
 let setTest = test.set({
-    first: 'Yeah',
-    next: 'Two'
+    first: 'test',
+    next: 'test1'
+});
+*/
+
+
+app.get('/', (req, res) => {
+  res.render('index', {title: "DON'T HACK", user: "Me"})
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+io.on('connection', function(socket){
+  socket.on('chat', function(msg){
+    db.collection('Chat').doc().set({
+      name: "Rohan",
+      text: msg
+    });
+    socket.emit('chat', msg);
+    
+    
+  });
+});
+
+
+http.listen(port, () => console.log(`Example app listening on port ${port}!`))

@@ -51,27 +51,35 @@
         </div>
     </div>
     <div class="container chat-container">
-        <div class="msg-container bg-dark">
-            <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
-            <p class="text-light">Hello. How are you today?</p>
-        </div>
-
         <div class="msg-container bg-info">
-            <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
-            <p class="text-light">Hey! I'm fine. Thanks for asking!</p>
-        </div>
-
-        <div class="msg-container bg-dark">
-            <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
-            <p class="text-light">Sweet! So, what do you wanna do today?</p>
-        </div>
-
-        <div class="msg-container bg-info">
-            <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
             <p class="text-light">Nah, I dunno. Finn sucks.</p>
         </div>
     </div>
+
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+
 </body>
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+<script>
+    $(function () {
+    var socket = io();
+    $('form').submit(function(e){
+      e.preventDefault(); // prevents page reloading
+      socket.emit('chat', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+    // TODO fix here
+    socket.on('chat', function(msg){
+      $('msg-container bg-info').append('<p class="text-light">$msg</p>');
+    });
+  });  
+</script>
 <style>
     :root {
         --color-primary-0: #303C74;
@@ -254,25 +262,6 @@
 
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-<script>
-    // Your web app's Firebase configuration
-
-    var firebaseConfig = {
-        apiKey: "AIzaSyAvNOiJDNjBcp5Eeu2By7yLAMF40In3ja8",
-        authDomain: "vot3s-da1d7.firebaseapp.com",
-        databaseURL: "https://vot3s-da1d7.firebaseio.com",
-        projectId: "vot3s-da1d7",
-        storageBucket: "vot3s-da1d7.appspot.com",
-        messagingSenderId: "549966422568",
-        appId: "1:549966422568:web:4a512169c7346e5c3b8b1d"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-</script>
   </body>
 </html>
