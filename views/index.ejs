@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>REDACTED</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" href="images/r.png" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand abs" href="#">Make a Choice</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -19,44 +19,56 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
 
 
 
     <div class="prompt">
-        <h1 class="text-light">Vot3!</h1>
-        <h4>and Build Your Streak</h4>
+        <h1 class="p-3 mb-2 bg-danger text-white"><font size = "15" face="arial black" color="black"><del> REDACTED </del></font></h1>
+        <h4></h4>
     </div>
 
     <div class="container-fluid">
-        <div class="" style="margin-top:75px;margin-bottom:75px;">
+        <div class="" style="margin-top:0px;margin-bottom:10px;">
 
-            <div style="width:100%;height:400px;">
+            <div style="width:100%;height:150px;">
                 <div class="main-image">
-                    <img class="hoverable" src="https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                         alt="Flower" style="float:left;width:50%;height:100%;object-fit:cover;">
+                    <img class="hoverable" src="https://ubyssey.storage.googleapis.com/media/images/2018/12/redaction_online-01.png"
+                         alt="Flower" style="float:left;width:25%;height:100%;object-fit:cover;">
                 </div>
                 <div class="main-image">
-                    <img class="hoverable" src="https://cdn.kiwilimon.com/recetaimagen/30704/th5-640x426-34299.jpg"
-                         alt="Sandwich" style="float:left;width:50%;height:100%;object-fit:cover;">
+                    <img class="hoverable" src="https://am14.mediaite.com/med/cnt/uploads/2018/12/Dtnj6KfWsAsSx0C-1200x675.jpg"
+                         alt="Sandwich" style="float:left;width:25%;height:100%;object-fit:cover;">
+                </div>
+                <div class="main-image">
+                    <img class="hoverable" src="https://percipient.co/wp-content/uploads/Redaction-of-Documents-in-Litigation.jpg"
+                         alt="Flower" style="float:left;width:25%;height:100%;object-fit:cover;">
+                </div>
+                <div class="main-image">
+                    <img class="hoverable" src="https://i.imgur.com/b77cJNc.png"
+                         alt="Sandwich" style="float:left;width:25%;height:100%;object-fit:cover;">
                 </div>
 
-                <div class="centered bg-dark circle-div">
+                <!-- <div class="centered bg-dark circle-div">
                     <div class="centered text-light">
                         <h1>OR</h1>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
     </div>
-    <div class="container chat-container" id="chatbox">
+    
+    <div class="chat-container" id="chatbox">
     </div>
 
-    <form action="" enctype="multipart/form-data">
-      <input id="m" autocomplete="off" placeholder="message"/>
-      <button>Send</button>
-    </form>
+    <div style = "text-align:center;" >
+        <form action="" enctype="multipart/form-data">
+            <h4></h4>
+            <input type = text id="m" autocomplete="off" placeholder="Message"/>
+            <button type="button" class="btn btn-light"><font size = "2" face="arial" color="black">Send</font></button>
+        </form>
+    </div>
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
@@ -75,7 +87,7 @@
     });
     // TODO fix here
     socket.on('chat', function(msg){
-      $('#chatbox').append('<div class="msg-container bg-info"> <p class="text-light">'+ msg +'</p> </div>');
+      $('#chatbox').append('<div class="msg-container"> <p class="text-light">'+ msg +'</p> </div>');
     });
   });  
 </script>
@@ -93,13 +105,13 @@
         --color-secondary-1-4: #17063A;
         --color-secondary-2-0: #26596A;
         --color-secondary-2-1: #6C939F;
-        --color-secondary-2-2: #457585;
+        --color-secondary-2-2: #000000;
         --color-secondary-2-3: #104050;
         --color-secondary-2-4: #022835;
     }
 
     body {
-        font-family: 'Georgia';
+        font-family: 'Arial';
     }
 
     .main-image {
@@ -114,13 +126,10 @@
         width: 100%
     }
 
-    .hoverable {
+    .hoverable:hover {
+        transition: 0.5s;
+        opacity: 0.5;
     }
-
-        .hoverable:hover {
-            transition: 0.5s;
-            opacity: 0.5;
-        }
 
     .prompt {
         margin: auto;
@@ -207,9 +216,11 @@
 
     .msg-container {
         border: 2px solid #dedede;
-        background-color: #f1f1f1;
+        background-color: #000000;
         border-radius: 5px;
-        padding: 10px;
+        padding-left: 1%;
+        padding-top: 1%;
+        padding-bottom: 1%;
     }
 
     .chat-container {
@@ -218,8 +229,8 @@
         border-radius: 5px;
         padding: 10px;
         margin: auto;
-        width: auto;
-        height: 300px;
+        width: 85%;
+        height: 60%;
         overflow: scroll;
     }
 
@@ -242,11 +253,11 @@
         border-radius: 50%;
     }
 
-        .chat-container img.right {
-            float: right;
-            margin-left: 20px;
-            margin-right: 0;
-        }
+    .chat-container img.right {
+        float: right;
+        margin-left: 20px;
+        margin-right: 0;
+    }
 
     .chat-time-right {
         float: right;
@@ -257,6 +268,13 @@
         float: left;
         color: #999;
     }
+
+    input[type=text]
+    {
+        border-radius: 5%;
+        width: 50%;
+    }
+
 </style>
 
 
