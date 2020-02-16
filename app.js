@@ -63,7 +63,7 @@ io.on('connection', function(socket){
       text: msg.text,
     }
     console.log(chat);
-    socket.emit('chat', chat); 
+    io.emit('chat', chat); 
   });
 });
 
