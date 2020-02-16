@@ -67,6 +67,22 @@ io.on('connection', function(socket){
   });
 });
 
+/**
+ * Call the 'recursiveDelete' callable function with a path to initiate
+ * a server-side delete.
+ */
+function deleteAtPath(path) {
+    var deleteFn = firebase.functions().httpsCallable('recursiveDelete');
+    deleteFn({ path: path })
+        .then(function(result) {
+            logMessage('Delete success: ' + JSON.stringify(result));
+        })
+        .catch(function(err) {
+            logMessage('Delete failed, see console,');
+            console.warn(err);
+        });
+}
+
 //just add
 const testFolder = './images/';
 const fs = require('fs');
