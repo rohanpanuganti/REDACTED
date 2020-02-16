@@ -49,7 +49,7 @@ let setTest = test.set({
 
 
 app.get('/', (req, res) => {
-  res.render('index', {title: "DON'T HACK", user: "Me"})
+  res.render('index', {title: "REDACTED", user: ""})
 });
 
 io.on('connection', function(socket){
