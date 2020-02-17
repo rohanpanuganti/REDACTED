@@ -58,6 +58,8 @@ io.on('connection', function(socket){
       text: msg
     });
        msg = msg.replace("hello", "REDACTED");
+       msg = msg.replace("test", "REDACTED");
+       msg = msg.replace("help", "REDACTED");
       io.emit('chat', msg);
   });
 
