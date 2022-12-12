@@ -5,7 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^7.8.2",
     "firebase-admin": "^8.9.2",
     "firebase-functions": "^3.3.0",
